@@ -1,0 +1,4 @@
+/home/tom/github/test_pytorch/build/CMakeFiles/mytest.dir
+/home/tom/github/test_pytorch/build/CMakeFiles/dcgan.dir
+/home/tom/github/test_pytorch/build/CMakeFiles/edit_cache.dir
+/home/tom/github/test_pytorch/build/CMakeFiles/rebuild_cache.dir
