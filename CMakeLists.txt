@@ -4,6 +4,10 @@ project(test_libtorch)
 # Set the search path to the parent directory of your libtorch install
 set(CMAKE_PREFIX_PATH /home/tom/.local/lib/libtorch/share/cmake) 
 
+# find dependencies
+find_package(PythonLibs 3.10 REQUIRED)
+find_package(Eigen3 REQUIRED) 
+
 # Find the Torch package
 find_package(Torch REQUIRED)
 
@@ -33,6 +37,12 @@ target_link_libraries(mytest PRIVATE ${TORCH_LIBRARIES})
 add_executable(dcgan src/dcgan.cpp)
 target_link_libraries(dcgan "${TORCH_LIBRARIES}")
 set_property(TARGET dcgan PROPERTY CXX_STANDARD 17)
+
+# Create eigen torch test executable
+add_executable(test_torch_eigen src/test_torch_eigen.cpp)
+
+# Link the test executable against your library and Torch
+target_link_libraries(test_torch_eigen cddp ${TORCH_LIBRARIES} ${PYTHON_LIBRARIES} Eigen3::Eigen)
 
 
 if (MSVC)
